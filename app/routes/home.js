@@ -28,7 +28,7 @@ export default Route.extend(Api, {
     const self     = this;
     const session  = self.get('session');
     const promises = {
-      clients: self.get('clients').getClients(),
+      clients: this.store.findAll('client'),
       assessments: self.get('assessments').getAssessments()
     };
 

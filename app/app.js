@@ -26,7 +26,7 @@ Route.reopen({
       profile: { title: 'Profile' },
       'clients.list': { title: 'Clients' },
       'clients.add': { title: 'Add a Client' },
-      'clients.client.profile': { title: 'Client Profile' },
+      'clients.client': { title: 'Client Profile' },
       'staffs.staff.profile': { title: 'Staff Profile' },
       'doctors.list': { title: 'Doctors' },
       'doctors.add': { title: 'Add a Doctor' },

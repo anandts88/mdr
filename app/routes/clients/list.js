@@ -24,9 +24,8 @@ export default Route.extend({
   },
 
   model() {
-    const self = this;
     return new Promise((resolve) => {
-      self.get('clients').getClients().then((clients) => {
+      this.store.findAll('client').then((clients) => {
         resolve(Clients.create({
           clients
         }));

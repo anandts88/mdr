@@ -27,7 +27,7 @@
 {{#if filtered}}
   <ul class="list-unstyled clearfix">
     {{#each filtered as |client|}}
-      {{#link-to 'clients.client.profile' client tagName="li" class="client-list-item col-md-4 clickable"}}
+      {{#link-to "clients.client" client.customer_id tagName="li" class="client-list-item col-md-4 clickable"}}
         <section class="client-wrapper clearfix">
           <div class="main clearfix">
             <h4>
