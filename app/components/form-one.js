@@ -68,10 +68,10 @@ export default Component.extend(Api, EmberValidator, {
           message: "Invalid ssn"
         }
       },
-      one_dob: {
+      one_dob_formatted: {
         required: 'Date of birth is required',
         date: {
-          format: 'MM/DD/YYYY',
+          format: 'MMM DD YYYY',
           messages: {
             format: 'Please enter the valid date'
           }
@@ -86,10 +86,10 @@ export default Component.extend(Api, EmberValidator, {
       two_referral_agency_name: {
         required: 'Referal Agency Name is required'
       },
-      two_referral_date: {
+      two_referral_date_formatted: {
         required: 'Referal date is required',
         date: {
-          format: 'MM/DD/YYYY',
+          format: 'MMM DD YYYY',
           messages: {
             format: 'Please enter the valid date'
           }
@@ -151,7 +151,7 @@ export default Component.extend(Api, EmberValidator, {
           page(2);
         }
       } else {
-        self.validateMap({ form, validations }).then(() => {
+        self.validateMap({ model: form, validations }).then(() => {
           data = _.pick(form, self.get('props'));
 
           data.one_age = form.get('one_age');
@@ -174,7 +174,7 @@ export default Component.extend(Api, EmberValidator, {
               page(2);
             }
           }).catch(Ember.K);
-        });
+        }).catch(Ember.K)
       }
     }
   }

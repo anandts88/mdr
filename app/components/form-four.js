@@ -79,7 +79,7 @@ export default Component.extend(Api, EmberValidator, {
       five_efteimht: {
         required: 'This field is required'
       },
-      five_last_baker_act_admit: {
+      five_last_baker_act_admit_formatted: {
         required: 'This field is required'
       },
       five_length_of_stay: {
@@ -97,10 +97,10 @@ export default Component.extend(Api, EmberValidator, {
       five_disch_status: {
         required: 'This field is required'
       },
-      five_disch_date: {
+      five_disch_date_formatted: {
         required: 'This field is required'
       },
-      five_last_baker_act_admit2: {
+      five_last_baker_act_admit2_formatted: {
         required: 'This field is required'
       },
       five_length_of_stay2: {
@@ -118,7 +118,7 @@ export default Component.extend(Api, EmberValidator, {
       five_disch_status2: {
         required: 'This field is required'
       },
-      five_disch_date2: {
+      five_disch_date2_formatted: {
         required: 'This field is required'
       },
       five_dyhmcm: {
@@ -151,7 +151,7 @@ export default Component.extend(Api, EmberValidator, {
       five_lmhmyhtip12m: {
         required: 'This field is required'
       },
-      five_dolsa: {
+      five_dolsa_formatted: {
         required: 'This field is required'
       },
       five_siip30d: {
@@ -192,7 +192,7 @@ export default Component.extend(Api, EmberValidator, {
           page(5);
         }
       } else {
-        self.validateMap({ form, validations }).then(() => {
+        self.validateMap({ model: form, validations }).then(() => {
           data = _.pick(form, self.get('props'));
 
           data.five_last_baker_act_admit = moment(form.get('five_last_baker_act_admit_formatted'), 'MMM DD YYYY').format('YYYY-MM-DD');

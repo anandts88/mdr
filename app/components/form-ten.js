@@ -54,22 +54,10 @@ export default Component.extend(Api, EmberValidator, {
       eleven_ai: {
         required: 'This field is required'
       },
-      eleven_at: {
-        required: 'This field is required'
-      },
-      eleven_atdate: {
-        required: 'This field is required'
-      },
       eleven_s: {
         required: 'This field is required'
       },
-      eleven_s_date: {
-        required: 'This field is required'
-      },
       eleven_eis: {
-        required: 'This field is required'
-      },
-      eleven_eis_date: {
         required: 'This field is required'
       }
     };
@@ -101,7 +89,7 @@ export default Component.extend(Api, EmberValidator, {
 
         data.eleven_eis = 'Yes';
 
-        self.validateMap({ form, validations }).then(() => {
+        self.validateMap({ model: form, validations }).then(() => {
           data = _.pick(form, self.get('props'));
 
           self.ajax({

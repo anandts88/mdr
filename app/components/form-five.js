@@ -52,7 +52,7 @@ export default Component.extend(Api, EmberValidator, {
       six_notywaip12m: {
         required: 'This field is required'
       },
-      six_date_of_last_arrest: {
+      six_date_of_last_arrest_formatted: {
         required: 'This field is required'
       },
       six_reason_for_last_arrest: {
@@ -117,7 +117,7 @@ export default Component.extend(Api, EmberValidator, {
           page(6);
         }
       } else {
-        self.validateMap({ form, validations }).then(() => {
+        self.validateMap({ model: form, validations }).then(() => {
           data = _.pick(form, self.get('props'));
 
           data.six_date_of_last_arrest = moment(form.get('six_date_of_last_arrest_formatted'), 'MMM DD YYYY').format('YYYY-MM-DD');

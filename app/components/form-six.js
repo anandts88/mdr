@@ -134,7 +134,7 @@ export default Component.extend(Api, EmberValidator, {
           page(7);
         }
       } else {
-        self.validateMap({ form, validations }).then(() => {
+        self.validateMap({ model: form, validations }).then(() => {
           data = _.pick(form, self.get('props'));
 
           self.ajax({

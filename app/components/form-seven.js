@@ -81,16 +81,16 @@ export default Component.extend(Api, EmberValidator, {
       eight_iphmm: {
         required: 'This field is required'
       },
-      eight_lpe: {
+      eight_lpe_formatted: {
         required: 'This field is required'
       },
-      eight_lpv: {
+      eight_lpv_formatted: {
         required: 'This field is required'
       },
-      eight_lbe: {
+      eight_lbe_formatted: {
         required: 'This field is required'
       },
-      eight_lps: {
+      eight_lps_formatted: {
         required: 'This field is required'
       },
       eight_dyhapp: {
@@ -99,10 +99,10 @@ export default Component.extend(Api, EmberValidator, {
       eight_dyhhi: {
         required: 'This field is required'
       },
-      eight_lttfh: {
+      eight_lttfh_formatted: {
         required: 'This field is required'
       },
-      eight_lha: {
+      eight_lha_formatted: {
         required: 'This field is required'
       },
       eight_los: {
@@ -120,10 +120,10 @@ export default Component.extend(Api, EmberValidator, {
       eight_disch_status: {
         required: 'This field is required'
       },
-      eight_disch_date: {
+      eight_disch_date_formatted: {
         required: 'This field is required'
       },
-      eight_lpv2: {
+      eight_lpv2_formatted: {
         required: 'This field is required'
       },
       eight_tp2: {
@@ -166,13 +166,13 @@ export default Component.extend(Api, EmberValidator, {
           page(8);
         }
       } else {
-        self.validateMap({ form, validations }).then(() => {
+        self.validateMap({ model: form, validations }).then(() => {
           data = _.pick(form, self.get('props'));
 
           data.eight_lpe = moment(form.get('eight_lpe_formatted'), 'MMM DD YYYY').format('YYYY-MM-DD');
           data.eight_lpv = moment(form.get('eight_lpv_formatted'), 'MMM DD YYYY').format('YYYY-MM-DD');
           data.eight_lbe = moment(form.get('eight_lbe_formatted'), 'MMM DD YYYY').format('YYYY-MM-DD');
-          data.eight_lbs = moment(form.get('eight_lbs_formatted'), 'MMM DD YYYY').format('YYYY-MM-DD');
+          data.eight_lps = moment(form.get('eight_lps_formatted'), 'MMM DD YYYY').format('YYYY-MM-DD');
           data.eight_lttfh = moment(form.get('eight_lttfh_formatted'), 'MMM DD YYYY').format('YYYY-MM-DD');
           data.eight_lha = moment(form.get('eight_lha_formatted'), 'MMM DD YYYY').format('YYYY-MM-DD');
           data.eight_disch_date = moment(form.get('eight_disch_date_formatted'), 'MMM DD YYYY').format('YYYY-MM-DD');

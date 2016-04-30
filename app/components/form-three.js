@@ -72,7 +72,7 @@ export default Component.extend(Api, EmberValidator, {
       four_efteit: {
         required: 'This field is required'
       },
-      four_last_detox_admit: {
+      four_last_detox_admit_formatted: {
         required: 'This field is required'
       },
       four_last_detox_admit_lentgh_of_stay: {
@@ -84,13 +84,13 @@ export default Component.extend(Api, EmberValidator, {
       four_drug_detoxed_from: {
         required: 'This field is required'
       },
-      four_drug_detoxed_from_disch_date: {
+      four_drug_detoxed_from_disch_date_formatted: {
         required: 'This field is required'
       },
       four_detox_disch_status: {
         required: 'This field is required'
       },
-      four_last_sa_tx_admit: {
+      four_last_sa_tx_admit_formatted: {
         required: 'This field is required'
       },
       four_last_sa_tx_admit_length_of_stay: {
@@ -102,7 +102,7 @@ export default Component.extend(Api, EmberValidator, {
       four_admit_reason: {
         required: 'This field is required'
       },
-      four_last_sa_tx_disch_date: {
+      four_last_sa_tx_disch_date_formatted: {
         required: 'This field is required'
       },
       four_last_sa_tx_disch_status: {
@@ -114,7 +114,7 @@ export default Component.extend(Api, EmberValidator, {
       four_dyfth: {
         required: 'This field is required'
       },
-      four_ltyaan: {
+      four_ltyaan_formatted: {
         required: 'This field is required'
       },
       four_dyhadoap: {
@@ -166,7 +166,7 @@ export default Component.extend(Api, EmberValidator, {
           page(4);
         }
       } else {
-        self.validateMap({ form, validations }).then(() => {
+        self.validateMap({ model: form, validations }).then(() => {
           data = _.pick(form, self.get('props'));
 
           data.four_last_detox_admit = moment(form.get('four_last_detox_admit_formatted'), 'MMM DD YYYY').format('YYYY-MM-DD');

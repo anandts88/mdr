@@ -76,7 +76,7 @@ export default Component.extend(Api, EmberValidator, {
       three_method_of_admin: {
         required: "Method of Admin is required"
       },
-      three_last_used: {
+      three_last_used_formatted: {
         required: "Last Used is required"
       },
       three_age_of_first_use: {
@@ -94,7 +94,7 @@ export default Component.extend(Api, EmberValidator, {
       three_method_of_admin_2: {
         required: "Method of Admin is required"
       },
-      three_last_used_2: {
+      three_last_used_2_formatted: {
         required: "Last Used is required"
       },
       three_age_of_first_use_2: {
@@ -112,7 +112,7 @@ export default Component.extend(Api, EmberValidator, {
       three_method_of_admin_3: {
         required: "Method of Admin is required"
       },
-      three_last_used_3: {
+      three_last_used_3_formatted: {
         required: "Last Used is required"
       },
       three_age_of_first_use_3: {
@@ -194,7 +194,7 @@ export default Component.extend(Api, EmberValidator, {
           page(3);
         }
       } else {
-        self.validateMap({ form, validations }).then(() => {
+        self.validateMap({ model: form, validations }).then(() => {
           data = _.pick(form, self.get('props'));
 
           data.three_last_used = moment(form.get('three_last_used_formatted'), 'MMM DD YYYY').format('YYYY-MM-DD');
@@ -216,7 +216,7 @@ export default Component.extend(Api, EmberValidator, {
               page(3);
             }
           }).catch(Ember.K);
-        });
+        }).catch(Ember.K);
       }
     },
 
