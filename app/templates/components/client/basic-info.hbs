@@ -1,0 +1,22 @@
+<section class="col-md-12">
+  <div class="form-group row">
+    <label class="col-sm-3">Name: </label>
+    <div class="col-sm-4">
+      {{model.first_name}} {{model.last_name}}
+    </div>
+    <label class="col-sm-2">Gender: </label>
+    <div class="col-sm-3">
+      {{model.gender}}
+    </div>
+  </div>
+  <div class="form-group row">
+    <label class="col-sm-3">Date of Birth: </label>
+    <div class="col-sm-4">
+      {{model.dob_formatted}}
+    </div>
+    <label class="col-sm-2">Age: </label>
+    <div class="col-sm-3">
+      {{model.age}} years
+    </div>
+  </div>
+</section>

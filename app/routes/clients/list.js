@@ -1,15 +1,9 @@
 import Ember from 'ember';
-import Clients from 'mdr/models/clients';
 
 const {
   Route,
-  RSVP,
   inject
 } = Ember;
-
-const {
-  Promise
-} = RSVP;
 
 const {
   service
@@ -24,13 +18,7 @@ export default Route.extend({
   },
 
   model() {
-    return new Promise((resolve) => {
-      this.store.findAll('client').then((clients) => {
-        resolve(Clients.create({
-          clients
-        }));
-      });
-    });
+    return this.store.findAll('client');
   },
 
   deactivate() {

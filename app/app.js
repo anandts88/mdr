@@ -6,7 +6,8 @@ import config from './config/environment';
 const {
   Route,
   Application,
-  run
+  run,
+  TextField
 } = Ember;
 
 const {
@@ -16,6 +17,10 @@ const {
 let App;
 
 Ember.MODEL_FACTORY_INJECTIONS = true;
+
+TextField.reopen({
+  autocomplete: 'off'
+});
 
 Route.reopen({
   activate() {

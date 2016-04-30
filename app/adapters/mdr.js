@@ -4,6 +4,6 @@ const {
   RESTAdapter
 } = DS;
 
-export default DS.RESTAdapter.extend({
+export default RESTAdapter.extend({
   namespace: 'mdrapi'
 });

@@ -1,11 +1,13 @@
 import Ember from 'ember';
+import TableHeading from 'mdr/models/table-heading';
 
 const {
   Component,
   isEmpty,
   get,
   set,
-  computed
+  computed,
+  on
 } = Ember;
 
 const {
@@ -15,14 +17,34 @@ const {
 export default Component.extend({
   tagName: 'section',
   selected: null,
-  filtered: oneWay('model.clients'),
+  filtered: oneWay('model'),
+
+  _init: on('init', function() {
+    this.set('headings', [
+      TableHeading.create({
+        name: 'First Name',
+        property: 'first_name'
+      }),
+      TableHeading.create({
+        name: 'Last Name',
+        property: 'last_name'
+      }),
+      TableHeading.create({
+        name: 'Date of Birth',
+        property: 'dob_date'
+      }),
+      TableHeading.create({
+        name: 'Gender',
+        property: 'gender'
+      }),
+    ]);
+  }),
 
   actions: {
     filter() {
-      const model     = this.get('model');
-      const firstName = model.get('firstName');
-      const lastName  = model.get('lastName');
-      const clients   = model.get('clients');
+      const clients   = this.get('model');
+      const firstName = this.get('firstName');
+      const lastName  = this.get('lastName');
 
       if (!isEmpty(clients)) {
         set(this, 'filtered', clients.filter((client) => {

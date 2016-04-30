@@ -34,7 +34,10 @@ Router.map(function() {
     this.route('clients', { resetNamespace: true }, function() {
       this.route('list', { path: '/' });
       this.route('add');
-      this.route('client', { path: '/:customer_id' });
+      this.route('client', { path: '/:customer_id' }, function() {
+        this.route('summary', { path: '/' });
+        this.route('appointments');
+      });
     });
 
     this.route('staffs', { resetNamespace: true }, function() {

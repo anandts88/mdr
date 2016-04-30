@@ -57,7 +57,7 @@ export default Route.extend({
       TableHeading.create({
         name: 'Date',
         property: 'ts_request_date'
-      }),
+      })
     ]);
   }
 });

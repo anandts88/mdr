@@ -1,0 +1,12 @@
+{{client/basic-info model=model}}
+<ul class="nav nav-tabs">
+  {{#link-to "clients.client.summary" tagName="li"}}
+    <a href="{{view.href}}">Summary</a>
+  {{/link-to}}
+  {{#link-to "clients.client.appointments" tagName="li"}}
+    <a href="{{view.href}}">Appointments</a>
+  {{/link-to}}
+</ul>
+<section class="tabs-container">
+  {{liquid-outlet}}
+</section>

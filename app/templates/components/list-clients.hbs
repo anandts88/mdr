@@ -5,13 +5,13 @@
         <div class="col-md-4 input-elements">
           <div class="input-group">
             <span class="input-group-addon"><i class="fa fa-user"></i></span>
-            {{input type="text" class="form-control" name="first-name" placeholder="First name" value=model.firstName autocomplete="off"}}
+            {{input type="text" class="form-control" name="first-name" placeholder="First name" value=firstName autocomplete="off"}}
           </div>
         </div>
         <div class="col-md-4 input-elements">
           <div class="input-group">
             <span class="input-group-addon"><i class="fa fa-user"></i></span>
-            {{input type="text" class="form-control" name="last-name" placeholder="Last name" value=model.lastName autocomplete="off"}}
+            {{input type="text" class="form-control" name="last-name" placeholder="Last name" value=lastName autocomplete="off"}}
           </div>
         </div>
         <div class="col-md-4 input-elements">
@@ -24,26 +24,19 @@
   </section>
 {{/unless}}
 
-{{#if filtered}}
-  <ul class="list-unstyled clearfix">
-    {{#each filtered as |client|}}
-      {{#link-to "clients.client" client.customer_id tagName="li" class="client-list-item col-md-4 clickable"}}
-        <section class="client-wrapper clearfix">
-          <div class="main clearfix">
-            <h4>
-              <i class="fa fa-user fa-2 primary-color"></i>
-              {{client.first_name}} {{client.last_name}}
-            </h4>
-            <ul class="list-unstyled">
-              <li><i class="fa {{if (eq client.gender 'Male') 'fa-male' 'fa-female'}}"></i> {{client.gender}} (Age {{client.age}} years)</li>
-            </ul>
-          </div>
-        </section>
+{{#table-sort headings=headings items=filtered as |obj|}}
+  {{#if obj.row}}
+    <td>
+      {{#link-to 'clients.client' obj.item.customer_id}}
+        {{obj.item.first_name}}
       {{/link-to}}
-    {{/each}}
-  </ul>
-{{else}}
-  <div class="alert alert-danger">
-    Clients are not available.
-  </div>
-{{/if}}
+    </td>
+    <td>
+      {{#link-to 'clients.client' obj.item.customer_id}}
+        {{obj.item.last_name}}
+      {{/link-to}}
+    </td>
+    <td>{{obj.item.dob_formatted}}</td>
+    <td>{{obj.item.gender}}</td>
+  {{/if}}
+{{/table-sort}}

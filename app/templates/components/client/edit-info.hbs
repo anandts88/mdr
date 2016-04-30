@@ -1,0 +1,138 @@
+<section class="client-edit-info col-md-12">
+  <form role="form" novalidate autocomplete="off" {{action "update" on="submit"}}>
+    <section class="col-md-12">
+
+      <div class="form-group row">
+
+        <label class="col-sm-2">First Name: </label>
+        <div class="col-sm-4">
+          {{input type="text" class="form-control" name="first-name" value=first_name maxlength=50}}
+        </div>
+
+        <label class="col-sm-2">Last Name: </label>
+        <div class="col-sm-4">
+          {{input type="text" class="form-control" name="last-name" value=last_name maxlength=50}}
+        </div>
+
+      </div>
+
+      <div class="form-group row">
+
+        <label class="col-sm-2">Date of Birth: </label>
+        <div class="col-sm-4">
+          {{input-date-picker class="form-control" name="dob" placeholder="Click to change" readonly="" value=dob_formatted}}
+        </div>
+
+        <label class="col-sm-2">Gender: </label>
+        <div class="col-sm-4">
+          <div>
+            <div class="radio-inline">
+              <label>
+                {{input-radio name="gender" group=gender value="Male"}} Male
+              </label>
+            </div>
+            <div class="radio-inline">
+              <label>
+                {{input-radio name="gender" group=gender value="Female"}} Female
+              </label>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="form-group row">
+
+        <label class="col-sm-2">SSN: </label>
+        <div class="col-sm-4">
+          {{mdr-ssn class="form-control" name="ssn" value=model.ssn autocomplete="off"}}
+        </div>
+
+        <label class="col-sm-2">Language: </label>
+        <div class="col-sm-4">
+          {{input-select
+            class="form-control"
+            name="language"
+            options=languages
+            labelPath="name"
+            valuePath="id"
+            selected=language_obj
+            prompt="Select"
+          }}
+        </div>
+
+      </div>
+
+      <div class="form-group row">
+
+        <label class="col-sm-2">Race: </label>
+        <div class="col-sm-4">
+          {{input-select
+            class="form-control"
+            name="race"
+            options=races
+            labelPath="name"
+            valuePath="id"
+            selected=race_obj
+            prompt="Select"
+          }}
+        </div>
+
+        <label class="col-sm-2">Ethnicity: </label>
+        <div class="col-sm-4">
+          {{input-select
+            class="form-control"
+            name="ethnicity"
+            options=ethnicities
+            selected=ethnicity
+            prompt="Select"
+          }}
+        </div>
+
+      </div>
+
+      <div class="form-group row">
+
+        <label class="col-sm-2">Primary Physician Name: </label>
+        <div class="col-sm-4">
+          {{input type="text" class="form-control" name="pcd-name" value=pcd_name maxlength=100}}
+        </div>
+
+        <label class="col-sm-2">Primary Physician Phone Number: </label>
+        <div class="col-sm-4">
+          {{mdr-phone type="text" class="form-control" name="pcd_phone" value=pcd_phone}}
+        </div>
+
+      </div>
+
+      <div class="form-group row">
+
+        <label class="col-sm-2">Email Address: </label>
+        <div class="col-sm-4">
+          {{input type="text" class="form-control" name="email-id" value=email_id maxlength=50}}
+        </div>
+
+        <label class="col-sm-2">Insurance Plans: </label>
+        <div class="col-sm-4">
+          {{input-select
+            class="form-control"
+            name="insurance-plan"
+            options=insurance_plans
+            labelPath="name"
+            valuePath="id"
+            selected=insurance_plan_obj
+            prompt="Select"
+          }}
+        </div>
+
+      </div>
+
+      <div class="form-group row">
+        <div class="col-md-2 form-group-right-align">
+          <button class="btn btn-primary btn-block" type="submit" autocomplete="off">Submit</button>
+        </div>
+      </div>
+
+    </section>
+  </form>
+</section>
