@@ -174,7 +174,7 @@ export default Component.extend(Api, EmberValidator, {
               page(2);
             }
           }).catch(Ember.K);
-        }).catch(Ember.K)
+        }).catch(Ember.K);
       }
     }
   }
